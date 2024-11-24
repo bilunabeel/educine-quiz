@@ -1,18 +1,20 @@
-import {HashRouter,Route,Routes} from 'react-router-dom'
-import Home from './Home'
-import QuestionPage from './QuestionPage'
+import {HashRouter, Route, Routes} from 'react-router-dom';
+import Home from './Home';
+import QuestionPage from './QuestionPage';
+import {MyContext} from './MyContext';
+import {qstns, totalBoard} from './questions';
 
-function App() {
-
+function App () {
   return (
-    <HashRouter>
-    <Routes>
-      <Route path='/' element={<Home/>} />
-      <Route path='/question' element={<QuestionPage/>} />
-
-    </Routes>
-    </HashRouter>
-  )
+    <MyContext.Provider value={{qstns, totalBoard}}>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/question" element={<QuestionPage />} />
+        </Routes>
+      </HashRouter>
+    </MyContext.Provider>
+  );
 }
 
-export default App
+export default App;

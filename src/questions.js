@@ -1,15 +1,27 @@
+export const totalBoard = [
+    {letter: 'R', score: 0},
+    {letter: 'I', score: 0},
+    {letter: 'A', score: 0},
+    {letter: 'S', score: 0},
+    {letter: 'E', score: 0},
+    {letter: 'C', score: 0},
+  ];
+
 export const qstns = [{
     id:1,
     qst:'എനിക്ക് കാർ നന്നാക്കാൻ താൽപര്യമുണ്ട്',
-    code: 'R'
+    code: 'R',
+    check:false
 },{
     id:2,
     qst:'പസിലുകൾ ചെയ്യാൻ എനിക്കിഷ്ടമാണ്',
-    code: 'I'
+    code: 'I',
+    check:false
 },{
     id:3,
-    qst:'വതന്ത്രമായി പ്രവർത്തിക്കാൻ ഞാൻ മിടുക്കനാണ്',
-    code: 'A'
+    qst:'സ്വതന്ത്രമായി പ്രവർത്തിക്കാൻ ഞാൻ മിടുക്കനാണ്',
+    code: 'A',
+    check:false
 },]
 
 // 1. എനിക്ക് കാർ നന്നാക്കാൻ താൽപര്യമുണ്ട്
