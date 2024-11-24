@@ -1,6 +1,6 @@
 import {HashRouter,Route,Routes} from 'react-router-dom'
 import Home from './Home'
-import QuesetionCard from './components/QuesetionCard'
+import QuestionPage from './QuestionPage'
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
     <HashRouter>
     <Routes>
       <Route path='/' element={<Home/>} />
-      <Route path='/qcard' element={<QuesetionCard/>} />
+      <Route path='/question' element={<QuestionPage/>} />
 
     </Routes>
     </HashRouter>
