@@ -12,8 +12,8 @@ const totalBoard = [
         <div className='flex justify-center items-center gap-2 bg-white py-5 rounded-3xl'>
 {totalBoard.map((board)=>(
     <div className=''>
-        <div className='rounded-t-lg w-10 bg-red-500 text-center font-bold text-white'>{board.letter}</div>
-        <div className='font-bold text-center border border-x-black border-b-black rounded-b-lg'>{board.score}</div>
+        <div className='rounded-t-lg w-10 bg-gray-600 text-center font-bold text-white'>{board.letter}</div>
+        <div className='font-bold text-center border border-x-gray-600 border-b-gray-600 rounded-b-lg'>{board.score}</div>
     </div>
 ))}
         </div>
