@@ -1,5 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {MyContext} from './MyContext';
+import { Link } from 'react-router-dom';
 
 const QuestionPage = () => {
   const {qstns} = useContext (MyContext);
@@ -39,6 +40,7 @@ const QuestionPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center gap-5 p-10">
+        <Link to={'/'}><button className='text-center text-gray-700 font-bold py-3 px-3  bg-gray-200 w-1/3 rounded-3xl shadow-lg' >{'<< Back'}</button></Link>
       <div className="flex justify-center items-center gap-2 bg-white py-5 rounded-3xl shadow-lg">
         {totalBoard.map (board => (
           <div key={board.letter}>
