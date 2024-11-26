@@ -1,14 +1,38 @@
 import React, {useContext, useState} from 'react';
-// import QuestionCard from './components/QuestionCard';
 import {MyContext} from './MyContext';
-import { qstns } from './questions';
 
 const QuestionPage = () => {
-  const {totalBoard} = useContext (MyContext);
+  const {qstns} = useContext (MyContext);
+  const [totalBoard, setTotalBoard] = useState([
+    { letter: "R", score: 0 },
+    { letter: "I", score: 0 },
+    { letter: "A", score: 0 },
+    { letter: "S", score: 0 },
+    { letter: "E", score: 0 },
+    { letter: "C", score: 0 },
+  ]);
 
   const [currentQst, setCurrentQst] = useState (0);
-  const handleButton = () => {
-    if (currentQst < totalBoard.length - 1) {
+
+  const handleTrue = () => {
+
+    qstns.forEach (qst => {
+      if (currentQst === qst.id - 1) {
+        qst.check = true;
+        setTotalBoard((prevBoard)=>
+            prevBoard.map((board)=>
+            board.letter === qst.code ? 
+    {...board, score:board.score + qst.id}:board))
+    }
+    });
+
+    if (currentQst < qstns.length - 1) {
+      setCurrentQst (currentQst + 1);
+    }
+  };
+
+  const handleSkip = () => {
+    if (currentQst < qstns.length) {
       setCurrentQst (currentQst + 1);
     }
   };
@@ -30,14 +54,23 @@ const QuestionPage = () => {
 
       {/* <QuestionCard /> */}
       <div className=" h-72 bg-white shadow-lg text-gray-700 rounded-3xl p-10 font-bold text-xl leading-normal">
-      {qstns[currentQst].qst}  
+        <div>{currentQst + 1}/{qstns.length}</div>
+        <div>
+          {qstns[currentQst].qst}
+        </div>
       </div>
 
       <div className="flex gap-5 font-bold text-white text-2xl justify-between">
-        <button  className="shadow-lg bg-blue-500 w-full py-3 rounded-3xl">
+        <button
+          onClick={handleSkip}
+          className="shadow-lg bg-blue-500 w-full py-3 rounded-3xl"
+        >
           Skip
         </button>
-        <button onClick={handleButton} className="shadow-lg bg-green-500 py-3 w-full rounded-3xl ">
+        <button
+          onClick={handleTrue}
+          className="shadow-lg bg-green-500 py-3 w-full rounded-3xl "
+        >
           True
         </button>
 
