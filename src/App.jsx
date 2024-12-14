@@ -1,19 +1,20 @@
 import {HashRouter, Route, Routes} from 'react-router-dom';
 import Home from './Home';
 import QuestionPage from './QuestionPage';
-import {MyContext} from './MyContext';
-import {qstns} from './questions';
+import {MyProvider} from './MyContext.jsx';
+import Final from './Final';
 
 function App () {
   return (
-    <MyContext.Provider value={{qstns}}>
+    <MyProvider>
       <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/question" element={<QuestionPage />} />
+          <Route path="/final" element={<Final />} />
         </Routes>
       </HashRouter>
-    </MyContext.Provider>
+    </MyProvider>
   );
 }
 
